@@ -9,7 +9,8 @@
   if(footer&&student){const right=document.createElement('div');right.className='header-right';student.parentNode.insertBefore(right,student);right.appendChild(student);right.appendChild(footer)}
   const section=document.createElement('section');section.className='commerce-news';
   section.innerHTML=`<div class="commerce-news-panel"><div class="commerce-news-head"><div class="commerce-news-title"><div class="commerce-news-mark">🇦🇹</div><div><h2>E-Commerce News Österreich & Wien</h2><p>6 aktuelle Entwicklungen mit Fokus auf den österreichischen Onlinehandel und Wien</p></div></div><div class="commerce-news-actions"><span class="commerce-news-badge"><span class="commerce-news-dot"></span>automatisch aktuell</span><span id="commerceNewsUpdated">wird geladen …</span><button class="commerce-news-refresh" id="commerceNewsRefresh">↻ Aktualisieren</button></div></div><div class="commerce-news-grid" id="commerceNewsGrid">${'<div class="commerce-news-skeleton"></div>'.repeat(6)}</div></div>`;
-  document.body.insertBefore(section,document.querySelector('script'));
+  const home=document.getElementById('home');
+  if(home) home.appendChild(section); else document.body.insertBefore(section,document.querySelector('script'));
   const grid=section.querySelector('#commerceNewsGrid'),updated=section.querySelector('#commerceNewsUpdated'),refresh=section.querySelector('#commerceNewsRefresh');
   const esc=(s='')=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const fd=x=>{try{return new Intl.DateTimeFormat('de-AT',{day:'2-digit',month:'2-digit',year:'numeric',timeZone:'Europe/Vienna'}).format(new Date(x))}catch{return''}};
