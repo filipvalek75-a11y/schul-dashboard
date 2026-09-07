@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ausbildung E-Commerce – Dashboard</title>
+<style>
+:root{--bg:#0e1116;--panel:#171b22;--panel2:#1d232c;--text:#f5f7fa;--muted:#aab3c0;--accent:#7c9cff;--green:#56d394;--red:#ff7070;--line:#2c3440}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:#0e1116;color:var(--text)}
+header,.wrap{max-width:1240px;margin:auto;padding:24px}h1{margin:0}.sub,.muted{color:var(--muted)}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{background:#232a35;color:white;border:1px solid var(--line);padding:10px 14px;border-radius:12px;cursor:pointer}.tab.active{background:var(--accent)}
+.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.s12{grid-column:span 12}.s7{grid-column:span 7}.s5{grid-column:span 5}@media(max-width:850px){.s7,.s5{grid-column:span 12}}
+.item{padding:14px 0;border-top:1px solid var(--line)}.item:first-child{border-top:0}.tag{display:inline-block;padding:5px 8px;border-radius:999px;background:#472727;color:#ffc0c0;font-size:12px}.done{background:#1e3c2e;color:#baf3d3}
+.schedule{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:700px){.schedule{grid-template-columns:1fr}}.day{background:var(--panel2);border-radius:14px;padding:14px}.lesson{display:grid;grid-template-columns:110px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed #39414d}.lesson:last-child{border:0}
+.assignment{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px}.assignment h3{margin:0 0 6px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+button{background:var(--accent);border:0;color:white;padding:9px 12px;border-radius:10px;cursor:pointer;font-weight:600}button.secondary{background:#303947}
+.details{display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}.details.open{display:block}
+ol{line-height:1.65}.answer{margin-top:8px;padding:10px 12px;background:#12171e;border-radius:10px;color:#dce3eb}
+</style>
+</head>
+<body>
+<header>
+<h1>Ausbildung E-Commerce</h1><div class="sub">2. Semester · Klasse 1EW</div>
+<nav>
+<button class="tab active" onclick="showPage('home',this)">Übersicht</button>
+<button class="tab" onclick="showPage('schedule',this)">Stundenplan</button>
+<button class="tab" onclick="showPage('assignments',this)">Abgaben</button>
+</nav>
+</header>
+<div class="wrap">
+
+<section id="home" class="page active">
+<div class="grid">
+<div class="card s7"><h2>Nächste Prüfungen</h2>
+<div class="item"><b>BWPP – Test 1</b><br>28.10.2026 <span class="tag">offen</span></div>
+<div class="item"><b>ECM – Schularbeit</b><br>11.11.2026 <span class="tag">offen</span></div>
+<div class="item"><b>AWL – Schularbeit</b><br>25.11.2026 <span class="tag">offen</span></div>
+<div class="item"><b>BWPP – Test 2</b><br>16.12.2026 <span class="tag">offen</span></div>
+</div>
+<div class="card s5"><h2>Fächer</h2><p>AWL · BE · BWPP · DFP · ECM · ITS · PB · DUK</p>
+<h2>Abgaben</h2><p><b>1 gespeichert</b></p><p class="muted">ECM – Wiederholung 1. Semester</p></div>
+</div>
+</section>
+
+<section id="schedule" class="page">
+<div class="card">
+<h2>Stundenplan</h2>
+<div class="schedule">
+<div class="day"><h3>Montag</h3>
+<div class="lesson"><span>07:30–09:10</span><b>ECM</b></div>
+<div class="lesson"><span>09:10–10:00</span><b>DFP</b></div>
+<div class="lesson"><span>10:15–11:05</span><b>BE</b></div>
+<div class="lesson"><span>11:05–11:55</span><b>PB</b></div>
+<div class="lesson"><span>13:00–15:30</span><b>AWL</b></div>
+</div>
+<div class="day"><h3>Mittwoch</h3>
+<div class="lesson"><span>07:30–08:20</span><b>ICM</b></div>
+<div class="lesson"><span>08:20–10:00</span><b>ITS</b></div>
+<div class="lesson"><span>10:15–11:05</span><b>AWL</b></div>
+<div class="lesson"><span>11:05–11:55</span><b>BWPP</b></div>
+<div class="lesson"><span>13:00–14:40</span><b>DUK</b></div>
+</div>
+</div></div>
+</section>
+
+<section id="assignments" class="page">
+<h2>Meine Abgaben</h2>
+<div class="assignment">
+<h3>ECM – Wiederholung 1. Semester 2026</h3>
+<div class="muted">Abgabe: 07.09.2026, 11:00 Uhr · 5 Punkte</div>
+<div style="margin-top:8px"><span class="tag done">Unterlagen vorhanden</span></div>
+<div class="actions">
+<button onclick="toggle('task')">Aufgabe ansehen</button>
+<button class="secondary" onclick="toggle('questions')">Meine 15 Fragen</button>
+<button class="secondary" onclick="toggle('answers')">Antworten</button>
+</div>
+<div id="task" class="details">
+<b>Auftrag</b>
+<p>Alle Themen aus dem 1. Semester wiederholen und einen Fragenkatalog mit 15 umfassenden Fragen erstellen. Zusätzlich eine Version mit Lösungen anlegen, den Fragenkatalog mit jemand anderem aus der Klasse tauschen und die erhaltenen Fragen beantworten.</p>
+</div>
+<div id="questions" class="details"><b>15 Fragen</b><ol>
+<li>Was ist Webtracking?</li><li>Was ist Display Advertising?</li><li>Warum ist die Zielgruppenanalyse für Unternehmen wichtig?</li>
+<li>Was versteht man unter CI/CD eines Unternehmens?</li><li>Wofür steht AIDA?</li><li>Wofür steht ein Widerrufsbutton?</li>
+<li>Welche Arten von Werbung gibt es?</li><li>Was sind die wichtigsten Ziele von Werbung?</li><li>Was ist der Unterschied zwischen ATL- und BTL-Werbung?</li>
+<li>Was ist eine Buyer Persona?</li><li>Beschreibe, was E-Mail-Marketing ist.</li><li>Warum ist es wichtig, Werbung auf eine bestimmte Zielgruppe abzustimmen?</li>
+<li>Was ist ATL, BTL, TTL?</li><li>Was bedeutet Barrierefreiheit im Web?</li><li>Was ist strategisches Marketing?</li>
+</ol></div>
+<div id="answers" class="details"><b>Antworten</b>
+<div class="answer">1. Webtracking bedeutet, dass man schaut, wie sich Besucher auf einer Website verhalten, z. B. welche Seiten sie besuchen oder wo sie klicken.</div>
+<div class="answer">2. Display Advertising ist Werbung im Internet mit Bannern, Bildern oder Videos.</div>
+<div class="answer">3. Damit ein Unternehmen weiß, wen es erreichen möchte und Werbung und Angebote besser auf diese Personen abstimmen kann.</div>
+<div class="answer">4. CI bedeutet Corporate Identity; CD bedeutet Corporate Design, z. B. Logo, Farben und Schrift.</div>
+<div class="answer">5. Attention, Interest, Desire und Action.</div>
+<div class="answer">6. Damit kann ein Kunde einen online abgeschlossenen Vertrag einfach online widerrufen.</div>
+<div class="answer">7. Z. B. Online-Werbung, Social Media, E-Mail-Marketing, Printwerbung, TV-, Radio- und Plakatwerbung.</div>
+<div class="answer">8. Aufmerksamkeit schaffen, neue Kunden gewinnen, Verkauf steigern und das Unternehmen bekannter machen.</div>
+<div class="answer">9. ATL ist klassische Werbung für viele Menschen; BTL ist gezielter und spricht bestimmte Kunden direkter an.</div>
+<div class="answer">10. Eine Buyer Persona ist eine erfundene Beispielperson, die einen typischen Kunden darstellt.</div>
+<div class="answer">11. Beim E-Mail-Marketing werden Kunden oder Interessenten per E-Mail über Angebote, Neuigkeiten oder Produkte informiert.</div>
+<div class="answer">12. Damit Werbung die richtigen Personen anspricht und für sie interessant und relevant ist.</div>
+<div class="answer">13. ATL = Above the Line, BTL = Below the Line, TTL = Through the Line; TTL verbindet klassische und direkte Werbemaßnahmen.</div>
+<div class="answer">14. Eine barrierefreie Website soll auch von Menschen mit Einschränkungen möglichst problemlos genutzt werden können.</div>
+<div class="answer">15. Strategisches Marketing beschäftigt sich mit langfristigen Zielen und Entscheidungen, z. B. Zielgruppe und Positionierung.</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+function showPage(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');btn.classList.add('active')}
+function toggle(id){document.getElementById(id).classList.toggle('open')}
+</script>
+</body></html>
