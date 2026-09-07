@@ -1,0 +1,1 @@
+Trigger Vercel deployment after GitHub connection. Stundenplan: Mittwoch 07:30–08:20 ITS.
