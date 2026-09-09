@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Snake · Lernpause</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#172554 0,#07111f 42%,#020617 100%);color:#e5f7ff;display:flex;align-items:center;justify-content:center;padding:20px}.game{width:min(94vw,620px);background:rgba(7,17,31,.9);border:1px solid rgba(34,211,238,.3);border-radius:24px;padding:20px;box-shadow:0 24px 70px rgba(0,0,0,.5),0 0 36px rgba(34,211,238,.08);backdrop-filter:blur(10px)}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.title h1{margin:0;font-size:26px;letter-spacing:.3px}.title p{margin:5px 0 0;color:#8ba6bb;font-size:14px}.scorebar{display:flex;gap:10px;flex-wrap:wrap}.pill{padding:8px 11px;border-radius:999px;background:#0b1d2f;border:1px solid #16344d;font-weight:800}.board-wrap{position:relative;margin:18px auto 14px;width:min(100%,500px);aspect-ratio:1/1}.board-wrap canvas{width:100%;height:100%;display:block;background:linear-gradient(180deg,#06111d,#071522);border:1px solid #16405b;border-radius:18px;box-shadow:inset 0 0 35px rgba(34,211,238,.04),0 0 30px rgba(34,211,238,.08)}.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}.message{background:rgba(2,6,23,.82);border:1px solid rgba(34,211,238,.35);border-radius:16px;padding:14px 18px;text-align:center;max-width:82%;box-shadow:0 0 28px rgba(34,211,238,.12);opacity:0;transform:scale(.96);transition:.2s}.message.show{opacity:1;transform:scale(1)}.message b{display:block;font-size:22px;color:#67e8f9;margin-bottom:4px}.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px 0}.btn{border:0;border-radius:12px;padding:10px 14px;font:inherit;font-weight:900;cursor:pointer;color:#03121a;background:linear-gradient(135deg,#22d3ee,#2dd4bf);box-shadow:0 0 18px rgba(34,211,238,.22);transition:.15s}.btn:hover{transform:translateY(-1px)}.btn.secondary{background:#0d2033;color:#b8d9eb;border:1px solid #21435b;box-shadow:none}.touch{display:none;grid-template-columns:repeat(3,62px);grid-template-rows:repeat(2,58px);gap:8px;justify-content:center;margin-top:10px}.touch button{background:#0c2235;border:1px solid #20506b;color:#67e8f9;border-radius:14px;font-size:23px;font-weight:900;touch-action:manipulation}.touch .up{grid-column:2}.touch .left{grid-column:1;grid-row:2}.touch .down{grid-column:2;grid-row:2}.touch .right{grid-column:3;grid-row:2}.hint{text-align:center;color:#7893a7;font-size:13px;margin:10px 0 0}.back{display:inline-block;margin-top:14px;color:#67e8f9;text-decoration:none;font-weight:800}@media(max-width:720px),(pointer:coarse){.touch{display:grid}.hint{font-size:12px}}@keyframes pulse{50%{filter:brightness(1.25)}}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#172554 0,#07111f 42%,#020617 100%);color:#e5f7ff;display:flex;align-items:center;justify-content:center;padding:20px}.game{width:min(94vw,620px);background:rgba(7,17,31,.9);border:1px solid rgba(34,211,238,.3);border-radius:24px;padding:20px;box-shadow:0 24px 70px rgba(0,0,0,.5),0 0 36px rgba(34,211,238,.08);backdrop-filter:blur(10px)}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.title h1{margin:0;font-size:26px;letter-spacing:.3px}.title p{margin:5px 0 0;color:#8ba6bb;font-size:14px}.scorebar{display:flex;gap:10px;flex-wrap:wrap}.pill{padding:8px 11px;border-radius:999px;background:#0b1d2f;border:1px solid #16344d;font-weight:800}.board-wrap{position:relative;margin:18px auto 14px;width:min(100%,500px);aspect-ratio:1/1}.board-wrap canvas{width:100%;height:100%;display:block;background:linear-gradient(180deg,#06111d,#071522);border:1px solid #16405b;border-radius:18px;box-shadow:inset 0 0 35px rgba(34,211,238,.04),0 0 30px rgba(34,211,238,.08)}.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}.message{background:rgba(2,6,23,.82);border:1px solid rgba(34,211,238,.35);border-radius:16px;padding:14px 18px;text-align:center;max-width:82%;box-shadow:0 0 28px rgba(34,211,238,.12);opacity:0;transform:scale(.96);transition:.2s}.message.show{opacity:1;transform:scale(1)}.message b{display:block;font-size:22px;color:#67e8f9;margin-bottom:4px}.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px 0}.btn{border:0;border-radius:12px;padding:10px 14px;font:inherit;font-weight:900;cursor:pointer;color:#03121a;background:linear-gradient(135deg,#22d3ee,#2dd4bf);box-shadow:0 0 18px rgba(34,211,238,.22);transition:.15s}.btn:hover{transform:translateY(-1px)}.btn.secondary{background:#0d2033;color:#b8d9eb;border:1px solid #21435b;box-shadow:none}.touch{display:none;grid-template-columns:repeat(3,62px);grid-template-rows:repeat(2,58px);gap:8px;justify-content:center;margin-top:10px}.touch button{background:#0c2235;border:1px solid #20506b;color:#67e8f9;border-radius:14px;font-size:23px;font-weight:900;touch-action:manipulation}.touch .up{grid-column:2}.touch .left{grid-column:1;grid-row:2}.touch .down{grid-column:2;grid-row:2}.touch .right{grid-column:3;grid-row:2}.hint{text-align:center;color:#7893a7;font-size:13px;margin:10px 0 0}.back{display:inline-block;margin-top:14px;color:#67e8f9;text-decoration:none;font-weight:800}@media(max-width:720px),(pointer:coarse){.touch{display:grid}.hint{font-size:12px}}@media(prefers-reduced-motion:reduce){.message,.btn{transition:none!important}}
 </style>
 </head>
 <body>
@@ -35,7 +35,6 @@
   <a class="back" href="/">← Zurück zum Schul-Dashboard</a>
 </div>
 <script>
-// --- Grundeinstellungen ---
 const canvas=document.getElementById('gameCanvas');
 const ctx=canvas.getContext('2d');
 const scoreEl=document.getElementById('score');
@@ -45,14 +44,17 @@ const startBtn=document.getElementById('startBtn');
 const pauseBtn=document.getElementById('pauseBtn');
 const grid=20;
 const tiles=canvas.width/grid;
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let snake,food,dir,nextDir,score,timer,running=false,paused=false,speed=125;
 let highscore=Number(localStorage.getItem('snakeHighscore')||0);
+let eatFlash=0,tongueTimer=0,deathAnim=0,frameTime=0,poisonParticles=[];
 highscoreEl.textContent=highscore;
 
 function resetGame(){
   snake=[{x:12,y:12},{x:11,y:12},{x:10,y:12}];
   dir={x:1,y:0}; nextDir={x:1,y:0}; score=0; speed=125; paused=false;
-  scoreEl.textContent=score; pauseBtn.textContent='Pause'; placeFood(); draw();
+  eatFlash=0;tongueTimer=0;deathAnim=0;poisonParticles=[];
+  scoreEl.textContent=score; pauseBtn.textContent='Pause'; placeFood(); draw(performance.now());
 }
 function placeFood(){
   do{food={x:Math.floor(Math.random()*tiles),y:Math.floor(Math.random()*tiles)}}
@@ -63,7 +65,7 @@ function startGame(){
 }
 function loop(){
   if(!running||paused)return;
-  step(); draw();
+  step(); draw(performance.now());
   if(running)timer=setTimeout(loop,speed);
 }
 function step(){
@@ -73,39 +75,79 @@ function step(){
   snake.unshift(head);
   if(head.x===food.x&&head.y===food.y){
     score++; scoreEl.textContent=score; speed=Math.max(55,125-score*3); placeFood();
+    eatFlash=1;tongueTimer=1;
     if(score>highscore){highscore=score;highscoreEl.textContent=highscore;localStorage.setItem('snakeHighscore',String(highscore))}
   }else snake.pop();
 }
-function draw(){
+function rgba(hex,a){const n=parseInt(hex.slice(1),16);return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`}
+function roundedRect(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+function angleForDirection(d){if(d.x===1)return 0;if(d.x===-1)return Math.PI;if(d.y===1)return Math.PI/2;return -Math.PI/2}
+function spawnPoison(x,y){if(reducedMotion||paused||!running)return;if(Math.random()>.38)return;poisonParticles.push({x,y,r:1.5+Math.random()*2.5,life:.7+Math.random()*.6,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6});if(poisonParticles.length>65)poisonParticles.shift()}
+function drawFood(){
+  const cx=food.x*grid+grid/2,cy=food.y*grid+grid/2;
+  ctx.save();ctx.shadowBlur=22;ctx.shadowColor='#ff334f';
+  const g=ctx.createRadialGradient(cx-3,cy-3,2,cx,cy,grid*.42);g.addColorStop(0,'#ff9bad');g.addColorStop(.45,'#fb3157');g.addColorStop(1,'#8f102a');
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,grid*.34,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#84cc16';ctx.fillRect(cx-1,cy-grid*.43,2,5);ctx.restore();
+}
+function drawParticles(dt){
+  ctx.save();for(const p of poisonParticles){p.life-=dt;p.x+=p.vx;p.y+=p.vy;ctx.globalAlpha=Math.max(0,p.life);ctx.shadowBlur=10;ctx.shadowColor='#79ff31';ctx.fillStyle='#76ff38';ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}ctx.restore();
+  poisonParticles=poisonParticles.filter(p=>p.life>0)
+}
+function drawBodySegment(s,i,time){
+  const x=s.x*grid+grid/2,y=s.y*grid+grid/2;
+  const tailFactor=i/(snake.length-1||1);
+  const danger=Math.min(1,score/18);
+  const wave=reducedMotion?0:Math.sin(time*.006+i*.85)*1.25*(1-tailFactor*.65);
+  const radius=Math.max(4,grid*(.42-tailFactor*.18));
+  const isHigh=score>=12;
+  const base=i%2===0?'#1f7a32':'#155c28';
+  const dark=isHigh?'#07180d':'#0c2a15';
+  const grad=ctx.createRadialGradient(x-4,y-5,1,x,y,radius+5);
+  grad.addColorStop(0,'#8cff49');grad.addColorStop(.28,base);grad.addColorStop(1,dark);
+  ctx.save();ctx.shadowBlur=10+danger*16;ctx.shadowColor='#74ff33';ctx.fillStyle=grad;
+  ctx.beginPath();ctx.arc(x+(dir.y?wave:0),y+(dir.x?wave:0),radius,0,Math.PI*2);ctx.fill();
+  ctx.globalAlpha=.25;ctx.strokeStyle='#b9ff84';ctx.lineWidth=1;ctx.beginPath();ctx.arc(x-2,y-2,radius*.56,Math.PI*.95,Math.PI*1.65);ctx.stroke();ctx.globalAlpha=1;
+  if(score>=8&&i>1&&i%3===0){ctx.fillStyle=score>=18?'#8cff49':'#3bd14d';const spike=3+danger*3;ctx.beginPath();ctx.moveTo(x,y-radius+1);ctx.lineTo(x-3,y-radius-spike);ctx.lineTo(x+3,y-radius-spike);ctx.closePath();ctx.fill()}
+  ctx.restore();spawnPoison(x,y)
+}
+function drawConnections(time){
+  if(snake.length<2)return;ctx.save();ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#174d25';ctx.shadowBlur=13;ctx.shadowColor='#67ff2e';ctx.lineWidth=grid*.55;
+  ctx.beginPath();snake.forEach((s,i)=>{const x=s.x*grid+grid/2,y=s.y*grid+grid/2;const wave=reducedMotion?0:Math.sin(time*.006+i*.85)*.8;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x+(dir.y?wave:0),y+(dir.x?wave:0))});ctx.stroke();ctx.restore()
+}
+function drawHead(time){
+  const h=snake[0];const cx=h.x*grid+grid/2,cy=h.y*grid+grid/2;const a=angleForDirection(dir);const danger=Math.min(1,score/18);const redEyes=eatFlash>0;
+  ctx.save();ctx.translate(cx,cy);ctx.rotate(a);ctx.shadowBlur=18+danger*18;ctx.shadowColor=redEyes?'#ff1d35':'#72ff37';
+  const hg=ctx.createLinearGradient(-12,-12,12,12);hg.addColorStop(0,'#0a1b0c');hg.addColorStop(.35,'#1f6e2d');hg.addColorStop(.7,'#39b54a');hg.addColorStop(1,'#081309');
+  ctx.fillStyle=hg;ctx.beginPath();ctx.ellipse(2,0,grid*.62,grid*.49,0,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#0b100c';ctx.beginPath();ctx.ellipse(8,0,grid*.39,grid*.3,0,0,Math.PI*2);ctx.fill();
+  const eyeColor=redEyes?'#ff253f':'#b6ff38';
+  [[1,-6],[1,6]].forEach(([ex,ey])=>{ctx.fillStyle=eyeColor;ctx.shadowBlur=10;ctx.shadowColor=eyeColor;ctx.beginPath();ctx.ellipse(ex,ey,4.3,3.2,0,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle='#020202';ctx.beginPath();ctx.ellipse(ex+2.2,ey,1.45,2.2,0,0,Math.PI*2);ctx.fill()});
+  ctx.fillStyle='#2a0508';ctx.beginPath();ctx.ellipse(9,0,7,4.5,0,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#f8fafc';for(const sy of [-1,1]){ctx.beginPath();ctx.moveTo(5,sy*2);ctx.lineTo(9,sy*5);ctx.lineTo(10,sy*1);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(12,sy*2);ctx.lineTo(15,sy*5);ctx.lineTo(16,sy*1);ctx.closePath();ctx.fill()}
+  const tongueOn=!paused&&(tongueTimer>0||Math.sin(time*.004)>0.94);
+  if(tongueOn&&!reducedMotion){ctx.strokeStyle='#ff2145';ctx.lineWidth=2;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(15,0);ctx.lineTo(23,0);ctx.lineTo(28,-4);ctx.moveTo(23,0);ctx.lineTo(28,4);ctx.stroke()}
+  if(score>=15){ctx.fillStyle='#9bff42';for(const sy of [-1,1]){ctx.beginPath();ctx.moveTo(-4,sy*8);ctx.lineTo(-9,sy*14);ctx.lineTo(0,sy*10);ctx.closePath();ctx.fill()}}
+  ctx.restore()
+}
+function drawTail(){if(snake.length<2)return;const last=snake[snake.length-1],prev=snake[snake.length-2];const cx=last.x*grid+grid/2,cy=last.y*grid+grid/2;const dx=last.x-prev.x,dy=last.y-prev.y;const a=angleForDirection({x:dx,y:dy});ctx.save();ctx.translate(cx,cy);ctx.rotate(a);ctx.shadowBlur=9;ctx.shadowColor='#55ff2b';ctx.fillStyle='#0c3f19';ctx.beginPath();ctx.moveTo(-grid*.42,-4);ctx.lineTo(grid*.4,0);ctx.lineTo(-grid*.42,4);ctx.closePath();ctx.fill();ctx.restore()}
+function drawDeath(){if(deathAnim<=0)return;ctx.save();ctx.globalAlpha=Math.max(0,deathAnim);ctx.fillStyle='#ff334f';ctx.shadowBlur=20;ctx.shadowColor='#ff334f';snake.forEach((s,i)=>{const x=s.x*grid+grid/2,y=s.y*grid+grid/2,r=Math.max(2,6*deathAnim);ctx.beginPath();ctx.arc(x+(Math.random()-.5)*8,y+(Math.random()-.5)*8,r,0,Math.PI*2);ctx.fill()});ctx.restore()}
+function draw(now=performance.now()){
+  const dt=Math.min(.05,(now-frameTime)/1000||0);frameTime=now;if(!paused){eatFlash=Math.max(0,eatFlash-dt*3.4);tongueTimer=Math.max(0,tongueTimer-dt*2.5);if(deathAnim>0)deathAnim=Math.max(0,deathAnim-dt*1.3)}
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  // feines Spielfeldraster
-  ctx.strokeStyle='rgba(103,232,249,.035)';ctx.lineWidth=1;
-  for(let i=0;i<=tiles;i++){ctx.beginPath();ctx.moveTo(i*grid,0);ctx.lineTo(i*grid,canvas.height);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*grid);ctx.lineTo(canvas.width,i*grid);ctx.stroke()}
-  // Futter
-  ctx.shadowBlur=18;ctx.shadowColor='#fb7185';ctx.fillStyle='#fb7185';
-  ctx.beginPath();ctx.arc(food.x*grid+grid/2,food.y*grid+grid/2,grid*.34,0,Math.PI*2);ctx.fill();
-  // Schlange
-  snake.forEach((s,i)=>{ctx.shadowBlur=i===0?20:10;ctx.shadowColor='#22d3ee';ctx.fillStyle=i===0?'#67e8f9':'#2dd4bf';const p=2;ctx.fillRect(s.x*grid+p,s.y*grid+p,grid-p*2,grid-p*2)});
-  ctx.shadowBlur=0;
+  ctx.strokeStyle='rgba(103,232,249,.035)';ctx.lineWidth=1;for(let i=0;i<=tiles;i++){ctx.beginPath();ctx.moveTo(i*grid,0);ctx.lineTo(i*grid,canvas.height);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*grid);ctx.lineTo(canvas.width,i*grid);ctx.stroke()}
+  drawFood();drawParticles(paused?0:dt);drawConnections(now);
+  for(let i=snake.length-1;i>=1;i--)drawBodySegment(snake[i],i,now);
+  drawTail();drawHead(now);drawDeath();
+  if(eatFlash>0){ctx.save();ctx.globalAlpha=eatFlash*.18;ctx.fillStyle='#7cff35';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.restore()}
 }
-function gameOver(){running=false;clearTimeout(timer);showMessage('Game Over',`Punkte: ${score} · Drücke Neustart.`)}
-function togglePause(){
-  if(!running)return;
-  paused=!paused;pauseBtn.textContent=paused?'Weiter':'Pause';
-  if(paused)showMessage('Pause','Kurze Lernpause in der Lernpause 😄');else{hideMessage();loop()}
-}
+function gameOver(){running=false;clearTimeout(timer);deathAnim=1;draw(performance.now());setTimeout(()=>draw(performance.now()),90);showMessage('Game Over',`Punkte: ${score} · Drücke Neustart.`)}
+function togglePause(){if(!running)return;paused=!paused;pauseBtn.textContent=paused?'Weiter':'Pause';if(paused)showMessage('Pause','Kurze Lernpause in der Lernpause 😄');else{hideMessage();loop()}}
 function showMessage(title,text){messageEl.innerHTML=`<b>${title}</b><span>${text}</span>`;messageEl.classList.add('show')}
 function hideMessage(){messageEl.classList.remove('show')}
-function setDirection(name){
-  const map={up:{x:0,y:-1},down:{x:0,y:1},left:{x:-1,y:0},right:{x:1,y:0}};const n=map[name];if(!n)return;
-  if(n.x===-dir.x&&n.y===-dir.y)return;nextDir=n;
-  if(!running)startGame();
-}
+function setDirection(name){const map={up:{x:0,y:-1},down:{x:0,y:1},left:{x:-1,y:0},right:{x:1,y:0}};const n=map[name];if(!n)return;if(n.x===-dir.x&&n.y===-dir.y)return;nextDir=n;if(!running)startGame()}
 const keyMap={ArrowUp:'up',w:'up',W:'up',ArrowDown:'down',s:'down',S:'down',ArrowLeft:'left',a:'left',A:'left',ArrowRight:'right',d:'right',D:'right'};
-window.addEventListener('keydown',e=>{
-  if(keyMap[e.key]){e.preventDefault();setDirection(keyMap[e.key])}
-  if(e.code==='Space'){e.preventDefault();togglePause()}
-},{passive:false});
+window.addEventListener('keydown',e=>{if(keyMap[e.key]){e.preventDefault();setDirection(keyMap[e.key])}if(e.code==='Space'){e.preventDefault();togglePause()}},{passive:false});
 document.querySelectorAll('[data-dir]').forEach(b=>b.addEventListener('pointerdown',e=>{e.preventDefault();setDirection(b.dataset.dir)}));
 startBtn.addEventListener('click',startGame);pauseBtn.addEventListener('click',togglePause);
 resetGame();
