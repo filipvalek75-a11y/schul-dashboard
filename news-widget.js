@@ -12,10 +12,11 @@
   const home=document.getElementById('home');
   if(home) home.appendChild(section); else document.body.insertBefore(section,document.querySelector('script'));
   const grid=section.querySelector('#commerceNewsGrid'),updated=section.querySelector('#commerceNewsUpdated'),refresh=section.querySelector('#commerceNewsRefresh');
-  const esc=(s='')=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const esc=(s='')=>String(s).replace(/[&<>'\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const fd=x=>{try{return new Intl.DateTimeFormat('de-AT',{day:'2-digit',month:'2-digit',year:'numeric',timeZone:'Europe/Vienna'}).format(new Date(x))}catch{return''}};
   async function load(force=false){refresh.disabled=true;try{const r=await fetch('/api/news'+(force?'?t='+Date.now():''),{cache:force?'no-store':'default'});if(!r.ok)throw 0;const d=await r.json();if(!d.items||!d.items.length)throw 0;grid.innerHTML=d.items.map(n=>`<a class="commerce-news-card" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer"><div class="commerce-news-meta"><span class="commerce-news-tag">${esc(n.icon||'🇦🇹')} ${esc(n.category||'Österreich')}</span><span class="commerce-news-date">${fd(n.publishedAt)}</span></div><h3>${esc(n.title)}</h3><div class="commerce-news-source"><span>${esc(n.source||'Quelle')}</span><span class="commerce-news-arrow">↗</span></div></a>`).join('');updated.textContent='Stand: '+new Intl.DateTimeFormat('de-AT',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Vienna'}).format(new Date(d.updatedAt))}catch{grid.innerHTML='<div class="commerce-news-error"><b>Österreich-News sind gerade nicht erreichbar.</b><br>Bitte später erneut versuchen.</div>';updated.textContent='vorübergehend offline'}finally{refresh.disabled=false}}
   refresh.addEventListener('click',()=>load(true));load();
   if(!document.querySelector('script[data-abgaben-module]')){const a=document.createElement('script');a.src='assignment-tools.js';a.defer=true;a.dataset.abgabenModule='1';document.body.appendChild(a)}
   if(!document.querySelector('script[data-quick-add-module]')){const q=document.createElement('script');q.src='quick-add.js';q.defer=true;q.dataset.quickAddModule='1';document.body.appendChild(q)}
+  if(!document.querySelector('script[data-room-module]')){const r=document.createElement('script');r.src='timetable-rooms.js';r.defer=true;r.dataset.roomModule='1';document.body.appendChild(r)}
 })();
