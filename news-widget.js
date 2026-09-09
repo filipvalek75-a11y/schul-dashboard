@@ -19,4 +19,5 @@
   if(!document.querySelector('script[data-abgaben-module]')){const a=document.createElement('script');a.src='assignment-tools.js';a.defer=true;a.dataset.abgabenModule='1';document.body.appendChild(a)}
   if(!document.querySelector('script[data-quick-add-module]')){const q=document.createElement('script');q.src='quick-add.js';q.defer=true;q.dataset.quickAddModule='1';document.body.appendChild(q)}
   if(!document.querySelector('script[data-room-module]')){const r=document.createElement('script');r.src='timetable-rooms.js';r.defer=true;r.dataset.roomModule='1';document.body.appendChild(r)}
+  if(!document.querySelector('script[data-space-game-module]')){const g=document.createElement('script');g.src='space-game.js';g.defer=true;g.dataset.spaceGameModule='1';document.body.appendChild(g)}
 })();
