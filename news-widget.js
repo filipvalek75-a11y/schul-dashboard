@@ -20,4 +20,5 @@
   if(!document.querySelector('script[data-quick-add-module]')){const q=document.createElement('script');q.src='quick-add.js';q.defer=true;q.dataset.quickAddModule='1';document.body.appendChild(q)}
   if(!document.querySelector('script[data-room-module]')){const r=document.createElement('script');r.src='timetable-rooms.js';r.defer=true;r.dataset.roomModule='1';document.body.appendChild(r)}
   if(!document.querySelector('script[data-space-game-module]')){const g=document.createElement('script');g.src='space-game.js';g.defer=true;g.dataset.spaceGameModule='1';document.body.appendChild(g)}
+  if(!document.querySelector('script[data-legacy-assignment-module]')){const l=document.createElement('script');l.src='assignment-legacy-content.js';l.defer=true;l.dataset.legacyAssignmentModule='1';document.body.appendChild(l)}
 })();
