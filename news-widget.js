@@ -21,4 +21,5 @@
   if(!document.querySelector('script[data-room-module]')){const r=document.createElement('script');r.src='timetable-rooms.js';r.defer=true;r.dataset.roomModule='1';document.body.appendChild(r)}
   if(!document.querySelector('script[data-space-game-module]')){const g=document.createElement('script');g.src='space-game.js';g.defer=true;g.dataset.spaceGameModule='1';document.body.appendChild(g)}
   if(!document.querySelector('script[data-legacy-assignment-module]')){const l=document.createElement('script');l.src='assignment-legacy-content.js';l.defer=true;l.dataset.legacyAssignmentModule='1';document.body.appendChild(l)}
+  if(!document.querySelector('script[data-learning-fix-module]')){const f=document.createElement('script');f.src='learning-fix.js';f.defer=true;f.dataset.learningFixModule='1';document.body.appendChild(f)}
 })();
